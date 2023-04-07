@@ -1,5 +1,4 @@
 //import 'flowbite'
-
 import { useEffect, useState } from 'react';
 // import { Dialog } from '@headlessui/react';
 
@@ -18,6 +17,8 @@ import { supabase } from '../utils/supabase';
 
 
 export default function Home() {
+  const title = 'Home'
+  
   const [modalOn, setModalOn] = useState(false)
   const [choice, setChoice] = useState(false)
 
@@ -29,50 +30,45 @@ export default function Home() {
   useEffect(()=>{
     async function getCategories(){
       try {
+        setLoading(true)
+
         const {data:categories, error} = await supabase.from('categories').select('*')
+        
         if(error){
           setError(error)
           setData([])
         }
-        setLoading(true)
+
         setCategories(categories)
-      } catch (error) {
-        setLoading(false)
+
+      } catch (error) {        
         setError(error)
+      } finally {
+        setLoading(false)
       }
     }
 
     getCategories()
-  },[categories])
-
-  if(error){
-    setError(error)
-  }
-  if(!categories){
-    setLoading(true)
-    return <p>Loading.....</p>
-  }
-
-  const title = 'Home'
+  },[])
 
   function click() {
     setModalOn(true)
   }
 
-  function onClose() {
-    setIsOpen(false)
-  }
+  // function onClose() {
+  //   setIsOpen(false)
+  // }
+  if(error) return <p className='text-3xl text-center'>Forbidden error</p>
 
+  if(loading) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Loading...</p>
+
+  if(!categories) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Not exists categories</p>
 
   return (
-    <>
-      {categories ?  
-      
-      <div>
+    <>      
       <Head>
         <title>{!title ? 'Tienda Fregor | Frutos secos y Recetas saludables' : `Tienda Fregor | ${title}`}</title>
       </Head>
-
 
       <header className="hidden md:grid md:bg-lime-700/30 md:px-20 py-1">
       
@@ -80,11 +76,9 @@ export default function Home() {
           Ingresa a tú cuenta
         </p>
 
-
         {modalOn && <ModalLogin setModalOn={setModalOn} setChoice={setChoice} />}
 
       </header>
-
 
       <NavBar categories={categories} />
 
@@ -95,9 +89,7 @@ export default function Home() {
         </div>
       </main>
 
-
       <Footer />
-
 
       <FloatingWhatsApp
         phoneNumber="56936765323"
@@ -113,7 +105,7 @@ export default function Home() {
         darkMode={true}
         chatboxHeight={315}
         messageDelay={3}
-      /> </div>:<>{loading}</>}     
+      /> 
     </>
   )
 }
