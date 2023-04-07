@@ -100,7 +100,7 @@ export default function Home() {
 
 
       <FloatingWhatsApp
-        phoneNumber="56940038373"
+        phoneNumber="56936765323"
         accountName="Tienda Fregor"
         allowEsc
         allowClickAway={true}
