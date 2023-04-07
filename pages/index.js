@@ -1,5 +1,5 @@
 //import 'flowbite'
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 // import { Dialog } from '@headlessui/react';
 
 import Link from 'next/link';
@@ -38,7 +38,7 @@ export default function Home() {
           setError(error)
           setData([])
         }
-
+        setLoading(false)
         setCategories(categories)
 
       } catch (error) {        
@@ -59,12 +59,12 @@ export default function Home() {
     setIsOpen(false)
   }
 
-  
+
   if(error) return <p className='text-3xl text-center'>Forbidden error</p>
 
-  if(loading) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Loading...</p>
+  // if(loading) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Loading...</p>
 
-  if(!categories) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Not exists categories</p>
+   if(!categories) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Not exists categories</p>
 
   return (
     <>      

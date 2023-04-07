@@ -140,7 +140,7 @@ export default function NavBar({categories}) {
               <li key={categorie.id} className="cursor-pointer md:px-3">
                 <Link
                   href={`/categories/${categorie.url}`}
-                  className="flex py-3 px-3  text-gray-600/75 hover:bg-lime-600/30 rounded-lg  dark:text-white"
+                  className="flex py-3 px-3 text-gray-600/75 hover:bg-lime-600/30 rounded-lg  dark:text-white"
                   aria-current="page"
                 >                 
                   {categorie.name}
