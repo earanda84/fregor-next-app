@@ -55,9 +55,11 @@ export default function Home() {
     setModalOn(true)
   }
 
-  // function onClose() {
-  //   setIsOpen(false)
-  // }
+  function onClose() {
+    setIsOpen(false)
+  }
+
+  
   if(error) return <p className='text-3xl text-center'>Forbidden error</p>
 
   if(loading) return <p className="text-decoration-color: #f87171 text-center mt-10 text-3xl">Loading...</p>
