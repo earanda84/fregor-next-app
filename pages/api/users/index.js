@@ -9,5 +9,5 @@ export default async function usersHandler(req,res){
     // console.log(users,error)
 
 
-    res.status(200).json({message:'RUta de la Usuarios',data:users})
+    res.status(200).json({message:'RUta de la Usuarios',users:users})
 }
