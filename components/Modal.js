@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { Modal, Label, TextInput, Checkbox, Button } from "flowbite-react"
 
 export default function ModalLogin({setModalOn, setChoice}) {
+    const [screen, setScreen ] = useState()
     const click = () => {
         setChoice(true)
         setModalOn(false)
@@ -11,6 +12,8 @@ export default function ModalLogin({setModalOn, setChoice}) {
         setChoice(false)
         setModalOn(false)
     }
+    
+
 
     return (
         <>
@@ -18,11 +21,13 @@ export default function ModalLogin({setModalOn, setChoice}) {
                 {/* <Button onClick={click}>
                     Toggle modal
                 </Button> */}
+                
                 <Modal
                     show={click}
-                    size="md"
+                    size={"md"}
                     popup={true}
                     onClose={close}
+                    className="pt-[45px] md:pt-[100px]"
                 >
                     <Modal.Header className="dark:bg-dark-700/50"/>
                     <Modal.Body className="dark:bg-dark-700/50">

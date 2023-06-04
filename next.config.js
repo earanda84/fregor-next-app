@@ -2,6 +2,7 @@
 const hostnames = [
   'lh3.googleusercontent.com',
   'avatars.githubusercontent.com',
+  's3.amazonaws.com'
   // "localhost:3000/",
 ]
 

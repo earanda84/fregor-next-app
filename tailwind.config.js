@@ -53,6 +53,7 @@ module.exports = {
     'Segoe UI Symbol', 
     'Noto Color Emoji'
   ]
-    }
+    },
+    
   }
 }

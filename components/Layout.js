@@ -1,9 +1,14 @@
-import React from 'react'
+import NavBar from "./NavBar"
+import Footer from "./Footer"
 
-export default function Layout() {
+
+export default function Layout({children, ...props}) {
+  console.log("props desde el index",props)
   return (
-    <div>
-      <h1>LAYOUT</h1>
-    </div>
+    <>
+      <NavBar />
+        {children}
+      <Footer />
+    </>
   )
 }

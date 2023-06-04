@@ -20,10 +20,20 @@ export default function NavBar({categories}) {
   return (
     <>
     {/* Header */}
+    {/* <header className="hidden md:grid md:bg-lime-700/30 md:px-20 py-1">
+      
+        <p onClick={click} className='cursor-pointer px-5 py-3 text-xl mx-auto bg-transparent border-transparent text-gray-500 hover:bg-lime-700/50 hover:text-white focus:pointer-events-auto rounded-md' >
+          Ingresa a tú cuenta
+        </p>
+
+        {modalOn && <ModalLogin setModalOn={setModalOn} setChoice={setChoice} />}
+
+      </header> */}
       {/* Nav */}
       <nav
-        className={`${roboto.className}fixed top-0 z-50 w-full bg-lime-600/10 border border-lime-600/10 px-5 py-2 sm:px-10 sm:py-3 rounded-b-md dark:bg-gray-900`}
+        className={`${roboto.className} flex fixed top-0 z-10 w-full bg-[#c07440] border border-lime-600/10 px-5 py-2 sm:px-10 sm:py-3 dark:bg-gray-900`}
       >
+        
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link href={"/"} className="flex items-center">
             <Image
@@ -42,7 +52,7 @@ export default function NavBar({categories}) {
               data-collapse-toggle="navbar-search"
               aria-controls="navbar-search"
               aria-expanded="false"
-              className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
+              className="hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
             >
               <svg
                 className="w-5 h-5"
@@ -131,16 +141,16 @@ export default function NavBar({categories}) {
               <input
                 type="text"
                 id="search-navbar"
-                className="block w-full px-3 pl-10 text-sm md:text-md md:py-4 md: text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-700/50 focus:border-lime-700/50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full px-3 pl-10 text-sm md:mx-auto md:text-md md:py-4 md:text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-700/50 focus:border-lime-700/50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Busqueda..."
               />
             </div>
-            <ul className="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:mt-0 md:text-xl md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               { categories?.map(categorie => (
               <li key={categorie.id} className="cursor-pointer md:px-3">
                 <Link
-                  href={`/categories/${categorie.url}`}
-                  className="flex py-3 px-3 text-gray-600/75 hover:bg-lime-600/30 rounded-lg  dark:text-white"
+                  href={`https://fregor-next-app.vercel.app/categories/${categorie.url}`}
+                  className="flex py-3 px-3 text-white hover:text-[#F4D03F]"
                   aria-current="page"
                 >                 
                   {categorie.name}
