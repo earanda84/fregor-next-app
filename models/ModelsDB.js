@@ -15,7 +15,7 @@ const ProductSchema = Schema({
     }
 });
 
-const CategorieSchema = Schema({
+const CategorieSchema = new Schema({
     name: {
         type: String,
         required: true,
