@@ -1,8 +1,0 @@
-{
-    "app_id": "fregor-app-qmqfv",
-    "config_version": 20210101,
-    "name": "Fregor-APP",
-    "location": "BR-SP",
-    "provider_region": "aws-sa-east-1",
-    "deployment_model": "LOCAL"
-}

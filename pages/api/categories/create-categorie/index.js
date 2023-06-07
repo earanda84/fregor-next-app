@@ -1,9 +1,11 @@
 // import {  Categories, Productos } from "@ericadl/models/ModelsDB";
 import { Categories } from "@ericadl/models/ModelsDB";
-//import { connection } from "@ericadl/database/connection";
+import  connection  from "@ericadl/database/connection";
 
 export default async function createCategorie(req, res) {
   const parameters = req.body;
+  
+  await connection()
 
   try {
     // validate categorie if exists on db

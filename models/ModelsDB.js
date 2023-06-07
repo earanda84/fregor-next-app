@@ -1,19 +1,19 @@
 import { Schema, model, models } from "mongoose";
 
-const ProductSchema = Schema({
-    name: {
-        type: String, 
-        required: true,
-    },
-    price: {
-        type: Number, 
-        required: true,
-    },
-    description:{
-        type: String,
-        image: String,
-    }
-});
+// const ProductSchema = Schema({
+//     name: {
+//         type: String, 
+//         required: true,
+//     },
+//     price: {
+//         type: Number, 
+//         required: true,
+//     },
+//     description:{
+//         type: String,
+//         image: String,
+//     }
+// });
 
 const CategorieSchema = new Schema({
     name: {
@@ -44,8 +44,7 @@ const CategorieSchema = new Schema({
     
 });
 
-// Model ofr Product
-// export const Productos = model("producto",ProductSchema,"producto");
+// const Productos = model("producto",ProductSchema,"producto");
 
 const Categories = models.categories || model("categories", CategorieSchema, "categories");
 

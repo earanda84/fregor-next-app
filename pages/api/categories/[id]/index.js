@@ -1,7 +1,10 @@
 import { Categories } from "@ericadl/models/ModelsDB"
+//import connection from "@ericadl/database/connection"
+
 
 export default async function updateCategorie(req,res) {
     let {id} = req.query;
+    
     let parameters = req.body;
 
     try {
