@@ -62,9 +62,9 @@ export default function Products({categories}) {
   );
 }
 
-export async function getStaticPath(){
+// export async function getStaticPath(){
 
-}
+// }
 
 
 export async function getServerSideProps(context){
