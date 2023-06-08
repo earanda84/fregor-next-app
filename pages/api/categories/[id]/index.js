@@ -7,6 +7,10 @@ export default async function updateCategorie(req,res) {
     
     let parameters = req.body;
 
+    if(req.method !== "PUT") {
+        return res.status(405).end('Method not Allowed')
+    };
+    
     try {
         
         const response = await Categories.findByIdAndUpdate({_id : id}, parameters, {new: true})    

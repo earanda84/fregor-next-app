@@ -1,9 +1,9 @@
-import connection from "@ericadl/database/connection"
+// import connection from "@ericadl/database/connection"
 import { Products } from "@ericadl/models/Products";
 
 
 export default async function getProducts(req, res){
-    await connection();
+    // await connection();
 
     try {
         const products = await Products.find({})
