@@ -1,12 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connection from "@ericadl/database/connection"
-import { Categories } from "@ericadl/models/ModelsDB"
+import { Categories } from "@ericadl/models/Categories"
 
 export default async function handler(req, res) {
+
   await connection()
   
   try {
-    const categories = await Categories.find({})
+
+    const categories = await Categories.find({}).sort({name : 1}).exec()
         
     res.status(200).json({ message: "success", categories })
   } catch (error) {

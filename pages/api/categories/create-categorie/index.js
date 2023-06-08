@@ -1,17 +1,20 @@
-// import {  Categories, Productos } from "@ericadl/models/ModelsDB";
-import { Categories } from "@ericadl/models/ModelsDB";
+import { Categories } from "@ericadl/models/Categories";
 import  connection  from "@ericadl/database/connection";
 
 export default async function createCategorie(req, res) {
-  const parameters = req.body;
-  
   await connection()
+
+  // Pending tu upload image to storage from frontend
+  
+  if(req.method !== "POST") res.status(405).json({error: "Method not allowed"});
+
+  const parameters = req.body;
 
   try {
     // validate categorie if exists on db
     const categorieExist = await Categories.findOne({name: parameters.name})
 
-    console.log(categorieExist);
+    console.log('Category exists => ',categorieExist);
 
     if (categorieExist) {
       return res
@@ -19,9 +22,11 @@ export default async function createCategorie(req, res) {
         .json({ status: "error", message: "El recurso ya existe." , categoria_existente: categorieExist});
     }
 
-    const categoria = new Categories(parameters);
+    const categoria = new Categories({...parameters, url: parameters.name.toLowerCase().replace(/\s+/g,'-')});
 
     const response = await categoria.save();
+
+    console.log('Categoria Agregada => ', response)
 
     return res.status(200).json({
       status: "success",

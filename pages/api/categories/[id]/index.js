@@ -1,4 +1,4 @@
-import { Categories } from "@ericadl/models/ModelsDB"
+import { Categories } from "@ericadl/models/Categories"
 //import connection from "@ericadl/database/connection"
 
 
