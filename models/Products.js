@@ -23,7 +23,7 @@ const ProductSchema = new Schema({
     category:[{
         type: Schema.Types.ObjectId,
         ref: "categories",
-        required: false,
+        default: "Sin Categoria",
     }]
 });
 

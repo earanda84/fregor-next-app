@@ -8,11 +8,19 @@ export default async function createProduct(req, res) {
     await connection();
 
     const parameters = req.body;
-    // console.log('Los parametros ==> ', parameters)
+    console.log('Los parametros ==> ', parameters)
 
-    if (req.method !== "POST") res.status(405).json({ error: "Method not allowed" });
+    if (req.method !== "POST") res.status(405).end("Method not allowed");
+
 
     try {
+        // Calling to Categories Model, for to assing id at product model, and generate the categorie dependency
+        const category = JSON.parse(parameters.categories);
+console.log(category)
+        const categoryId = await Categories.findOne({ name: { $in: category } })
+
+
+
         // If product Exists
         const productExist = await Products.findOne({ name: parameters.name });
         console.log('El producto existe ==> ', productExist)
@@ -26,11 +34,7 @@ export default async function createProduct(req, res) {
             });
         }
 
-        // Calling to Categories Model, for to assing id at product model, and generate the categorie dependency
-        const category = JSON.parse(parameters.categories);
-
-        const categoryId = await Categories.findOne({ name: { $in: category } })
-
+        
         // Create product
         const product = new Products({...parameters, category: categoryId});
 
@@ -41,7 +45,7 @@ export default async function createProduct(req, res) {
         return res.status(200).json({ status: "success", message: "Producto creado con éxito", response })
 
     } catch (error) {
-        // console.log(error)
+     console.log(error)
 
         return res.status(404).json({ status: "error", message: "Error try to obtain this product", error })
     }
