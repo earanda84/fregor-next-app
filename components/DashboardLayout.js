@@ -80,7 +80,7 @@ export const DashboardLayout = ({ user, data }) => {
             {/* Button show sidebar mobile */}
             <button
                 onClick={handleSidebar}
-                className="block lg:hidden fixed bottom-4 right-4 bg-purple-600 text-white rounded-full text-3xl z-40"
+                className="block lg:hidden fixed bottom-12 right-4 bg-purple-600 text-white rounded-full text-4xl z-40"
             >
                 {sidebar ? <RiCloseLine /> : <RiMenu3Fill />}
             </button>
