@@ -20,9 +20,9 @@ export const DashboardLayout = ({ user, data }) => {
     return (
         <div className="min-h-screen grid grid-cols-1 lg:grid-cols-6">
             {/* Sidebar */}
-            <div className={`fixed lg:static top-0 ${sidebar ? '-left-0 transition-all' : '-left-full'} w-full overflow-y-scroll col-span-1 p-8 border-r`}>
+            <div className={`fixed lg:static top-0 z-50 bg-white ${sidebar ? '-left-0 transition-all' : '-left-full'} w-full overflow-y-scroll col-span-1 p-8 border-r`}>
                 {/* Logo */}
-                <div className="text-center p-8 bg-green-300">
+                <div className="text-center p-8">
                     {/* <Image src={logo} alt="logo-fregor" width={50} height={50} /> */}
                     <h1 className="uppercase font-bold tracking-[4px]">tu logo</h1>
                 </div>
@@ -62,8 +62,8 @@ export const DashboardLayout = ({ user, data }) => {
                 </div>
             </div>
             {/* Button show sidebar mobile */}
-            <button onClick={handleSidebar} className="block lg:hidden absolute bottom-4 right-4 bg-purple-600/75 text-white rounded-lg text-4xl">
-                <RiMenu3Fill />
+            <button onClick={handleSidebar} className="block lg:hidden absolute bottom-4 right-4 bg-purple-600/75 text-white rounded-full text-2xl">
+                {sidebar ? <RiCloseLine /> : <RiMenu3Fill />}
             </button>
             {/* Content */}
             <div className="grid col-span-5">holi2</div>
