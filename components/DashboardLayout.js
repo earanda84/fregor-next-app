@@ -32,7 +32,7 @@ export const DashboardLayout = ({ user, data }) => {
         <div className="min-h-screen grid grid-cols-1 lg:grid-cols-6">
             {/* Sidebar */}
             <div
-                className={`fixed lg:static w-[75%] md:w-[40%] lg:w-full top-0 z-50 bg-white transition-all ${sidebar ? "-left-0" : "-left-full"
+                className={`fixed lg:static w-[75%] md:w-[40%] lg:w-full top-0 z-40 bg-white transition-all ${sidebar ? "-left-0" : "-left-full"
                     } w-full h-full overflow-y-auto col-span-1 p-8 border-r`}
             >
                 {/* Logo */}
@@ -216,6 +216,23 @@ export const DashboardLayout = ({ user, data }) => {
                         </div>
                     </Link>
 
+                    <Link href={'#'} className="bg-white rounded-2xl p-8 flex flex-col md:flex-row gap-8 w-full drop-shadow-lg border-2 border-transparent hover:border-purple-600/50 transition-colors duration-500 mb-8">
+                        {/* Icon */}
+                        <div className="w-full md:w-[10%] flex items-center justify-start md:justify-center">
+                            <RiDropboxFill className="text-7xl bg-purple-100 p-4 text-purple-600 rounded-md" />
+                        </div>
+                        {/* Card Title */}
+                        <div className="w-full md:w-[70%]">
+                            <h1 className="text-xl flex items-center gap-4 mb-2">UX Designer <span className="text-xs py-1 px-2 bg-purple-100 text-purple-600 font-bold rounded-md">Remote</span> <span className="text-xs py-1 px-2 bg-green-100 text-green-600 font-bold rounded-md">Sketch</span>
+                            </h1>
+                            <p className="text-gray-500">Dropbox ---- Warzawa</p>
+                        </div>
+                        {/* Time */}
+                        <div className="w-full md:w-[20%] flex flex-col items-end">
+                            <h3 className="text-xl text-gray-500 mb-2">8.8 - 13.7k PLN</h3>
+                            <p className="text-gray-500">2 days ago</p>
+                        </div>
+                    </Link>
                     <Link href={'#'} className="bg-white rounded-2xl p-8 flex flex-col md:flex-row gap-8 w-full drop-shadow-lg border-2 border-transparent hover:border-purple-600/50 transition-colors duration-500 mb-8">
                         {/* Icon */}
                         <div className="w-full md:w-[10%] flex items-center justify-start md:justify-center">
